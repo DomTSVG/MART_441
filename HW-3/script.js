@@ -50,7 +50,7 @@ function storyFunction(choice) {
     document.getElementById("badchoice").innerHTML = "\"Charity\"";
   }
     else if (choice == 2 && answer2 == "Nah, I'm good.") {
-    document.getElementById("story").innerHTML = "<p>Hey there, looks like you made it to the ending!" + "<p>Thank you for playing! As you can probably tell, this little game is an homage to <i>The Kingdom of Loathing</i>. You can find it simply by googling it or <a href=\"https://www.kingdomofloathing.com\" target=\"_blank\">clicking here</a>. It's a fantastic browser game that is way better made than this.</p><p>If you want to play again, go ahead and say so. I won't judge!";
+    document.getElementById("story").innerHTML = "<p>Hey there, looks like you made it to the ending!" + "<p>Thank you for playing! As you can probably tell, this little game is an homage to <i>The Kingdom of Loathing</i>. You can find it simply by googling it or <a href=\"https://www.kingdomofloathing.com\" target=\"_blank\">clicking here</a>. It's a fantastic browser game that is way better made than this. Additionally, most of these images (except the one you see above now, that little guy with the d20 and book) are the property of The Kingdom of Loathing, copyright Asymmetric Publications, LLC. I just used them for this non-profit school project for fun.</p><p>If you want to play again, go ahead and say so. I won't judge!";
     document.getElementById("image").innerHTML = "<img src=\"./images/Logo_DMGuy.png\" alt=\"Azazel's Temple\">";
     document.getElementById("goodchoice").innerHTML = "I want to try again.";
     document.getElementById("badchoice").innerHTML = "Nah, I'm good."; }

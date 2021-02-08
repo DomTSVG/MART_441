@@ -1,0 +1,62 @@
+body, html {
+  height: 100%;
+  background-color: white;
+  font-style: normal;
+  align-content: center;
+  font-family: 'Bitter';
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 15%;
+}
+
+label {
+  font-family: 'Brush Script MT', cursive;
+  color: grey;
+}
+
+aside {
+  float: left;
+  width: 30%;
+  padding: 5px;
+}
+
+article {
+  float: left;
+  padding: 5px;
+  width: 70%;
+  visibility: hidden;
+  border-style: solid;
+  border-color: blue;
+  border-width: thin;
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.story {
+  font-family: 'Bitter';
+}
+
+.textarea {
+
+}
+
+.statblock {
+  border-style: solid;
+  border-color: blue;
+  border-width: thin;
+}
+
+.playerimg {
+  width: 30%;
+}
