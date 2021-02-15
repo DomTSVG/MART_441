@@ -14,10 +14,10 @@ function printBlanks() {
 
 function createRandomImageArray() {
     var actualImagePath = ["images/dragon.png", "images/fairy.png", "images/fire.png", "images/grass.png", "images/water.png"];
-    var count = [0,0];
+    var count = [0,0,0,0,0,0,0,0,0,0];
     while(actualImages.length < 10) {
         var randomNumber = Math.floor(Math.random() * actualImagePath.length);
-        if(count[randomNumber] < 5) {
+        if(count[randomNumber] < 2) {
             actualImages.push(actualImagePath[randomNumber]);
             count[randomNumber] = count[randomNumber] + 1;
         }
