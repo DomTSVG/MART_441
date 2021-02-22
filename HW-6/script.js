@@ -76,6 +76,7 @@ function flipImage(number) {
       correctGuesses = correctGuesses + 1;
       console.log("Correct: " + correctGuesses);
       if (correctGuesses >= 5) {
+        var player = playerInfo();
         player.attempts = attempts;
         localStorage.setItem("playerInfo", JSON.stringify(player));
         setTimeout(goResults, 2000);
@@ -138,6 +139,7 @@ function playerInfo() {
   var playerInformation = localStorage.getItem("playerInfo");
   let player = JSON.parse(playerInformation);
   console.log(player);
+  return player;
 }
 
 // ==================================
@@ -145,6 +147,7 @@ function playerInfo() {
 // ==================================
 
 function addResults() {
+  let player = playerInfo();
   console.log(player.firstName);
   console.log(player.lastName);
   console.log(player.age);
@@ -153,16 +156,16 @@ function addResults() {
   document.getElementById("lN").innerHTML = player.lastName;
   document.getElementById("ageVal").innerHTML = player.age;
   document.getElementById("tries").innerHTML = player.attempts;
-  if (attempts >= 11) {
+  if (player.attempts >= 11) {
     document.getElementById("comment").innerHTML = "You can do a bit better than that!";
   }
-  else if (attempts >= 6) {
+  else if (player.attempts >= 6) {
     document.getElementById("comment").innerHTML = "Hey, not too shabby!";
   }
-  else if (attempts == 5) {
+  else if (player.attempts == 5) {
     document.getElementById("comment").innerHTML = "Wow! That's insanely lucky!";
   }
-  else if (attempts < 5) {
+  else if (player.attempts < 5) {
     document.getElementById("comment").innerHTML = "Turns out, you're a cheater. Sheesh.";
   }
 }
