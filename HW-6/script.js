@@ -68,7 +68,7 @@ function flipImage(number) {
     }
     // ===Check if images match here===
     if(actualImages[secondNumber] != actualImages[firstNumber] && firstNumber >= 0 && secondNumber >= 0){
-      setTimeout(imageWipe, 1000);
+      setTimeout(imageWipe, 500);
     }
     else if(actualImages[secondNumber] == actualImages[firstNumber] && firstNumber >= 0 && secondNumber >= 0) {
       firstNumber = -1;
@@ -116,14 +116,16 @@ function restartGame() {
 function addPlayer() {
   var firstName = document.getElementById("name1").value;
   player.firstName = firstName;
-  console.log(firstName);
   var lastName = document.getElementById("name2").value;
   player.lastName = lastName;
-  console.log(lastName);
   var age = document.getElementById("ageTxt").value;
   player.age = age;
   console.log(age);
   localStorage.setItem("playerInfo", JSON.stringify("player"));
+  console.log("Uh oh?");
+  console.log(player.firstName);
+  console.log(player.lastName);
+  console.log(player.age);
   window.location = "game.html";
 }
 
@@ -131,9 +133,10 @@ function addPlayer() {
 // Get Info from the JSON
 // ======================
 
-function playerInfo(){
-  var playerInformation = localStorage.getItem("playerInfo");
-  player = JSON.parse(playerInformation);
+function playerInfo() {
+  let playerInformation = localStorage.getItem("playerInfo");
+  let player = JSON.parse(playerInformation);
+  console.log(player);
 }
 
 // ==================================
@@ -142,9 +145,13 @@ function playerInfo(){
 
 function addResults() {
   playerInfo();
-  document.getElementById("fN").innerHTML = firstName;
-  document.getElementById("lN").innerHTML = lastName;
-  document.getElementById("ageVal").innerHTML = age;
+  console.log(player.firstName);
+  console.log(player.lastName);
+  console.log(player.age);
+  console.log(player.attempts);
+  document.getElementById("fN").innerHTML = player.firstName;
+  document.getElementById("lN").innerHTML = player.lastName;
+  document.getElementById("ageVal").innerHTML = player.age;
   document.getElementById("tries").innerHTML = attempts;
   if (attempts >= 11) {
     document.getElementById("comment").innerHTML = "You can do a bit better than that!";
