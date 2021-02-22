@@ -77,7 +77,8 @@ function flipImage(number) {
       console.log("Correct: " + correctGuesses);
       if (correctGuesses >= 5) {
         player.attempts = attempts;
-        setTimeout(goResults, 3000);
+        localStorage.setItem("playerInfo", JSON.stringify(player));
+        setTimeout(goResults, 2000);
       }
     }
 }
@@ -121,7 +122,7 @@ function addPlayer() {
   var age = document.getElementById("ageTxt").value;
   player.age = age;
   console.log(age);
-  localStorage.setItem("playerInfo", JSON.stringify("player"));
+  localStorage.setItem("playerInfo", JSON.stringify(player));
   console.log("Uh oh?");
   console.log(player.firstName);
   console.log(player.lastName);
@@ -134,7 +135,7 @@ function addPlayer() {
 // ======================
 
 function playerInfo() {
-  let playerInformation = localStorage.getItem("playerInfo");
+  var playerInformation = localStorage.getItem("playerInfo");
   let player = JSON.parse(playerInformation);
   console.log(player);
 }
@@ -144,7 +145,6 @@ function playerInfo() {
 // ==================================
 
 function addResults() {
-  playerInfo();
   console.log(player.firstName);
   console.log(player.lastName);
   console.log(player.age);
@@ -152,7 +152,7 @@ function addResults() {
   document.getElementById("fN").innerHTML = player.firstName;
   document.getElementById("lN").innerHTML = player.lastName;
   document.getElementById("ageVal").innerHTML = player.age;
-  document.getElementById("tries").innerHTML = attempts;
+  document.getElementById("tries").innerHTML = player.attempts;
   if (attempts >= 11) {
     document.getElementById("comment").innerHTML = "You can do a bit better than that!";
   }
