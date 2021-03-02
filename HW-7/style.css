@@ -1,0 +1,13 @@
+img {
+  width: 40%;
+  border-radius: 5px;
+  border-style: ridge;
+  background-color: white;
+}
+
+body {
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Bitter';
+  background-color: tan;
+}
