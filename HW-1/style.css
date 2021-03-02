@@ -88,3 +88,24 @@ img {
   width: 98%;
   word-wrap: break-word;
 }
+
+.text-box button {
+  border: none;
+  font-family: 'Bitter';font-size: 15px;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: rgba(0, 200, 0, 1);
+  text-align: center;
+  cursor: pointer;
+  border-style: ridge;
+  border-width: medium;
+  border-color: white;
+  border-radius: 10px;
+}
+
+.text-box button:hover {
+  background-color: rgba(0, 200, 0, 0.8);
+  color: lime;
+}
