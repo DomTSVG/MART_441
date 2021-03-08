@@ -1,16 +1,33 @@
 body {
   font-family: 'Bitter';
-  background-color: lime;
+  background-color: grey;
+  background-image: url(images/background.jpg);
+  background-blend-mode: screen;
+  text-align: center;
 }
 
 img {
   width: 33.3%;
+  position: absolute;
+}
+
+button {
+  font-size: 24pt;
+  position: relative;
+  top: -20px;
+
 }
 
 #square {
    width: 33.3%;
    height: 100%;
-   background: green;
+   background-color: green;
+   background-image: url(images/squarebg.jpg);
+   background-blend-mode: soft-light;
+   border-radius: 5px;
+   border-style: groove;
+   border-radius: 1px;
+   color: white;
    position: absolute;
    left: 10px;
    top: 50px;
