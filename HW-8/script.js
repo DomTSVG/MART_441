@@ -72,15 +72,18 @@ function initializeArray() {
   moveImg();
 }
 
+
+
 // ========================================
 // Document Ready Function and Button Click
 // ========================================
 
 $(document).ready(function(){
-  console.log(allMons[count].toString());
-  console.log(allMons[count].theSelector);
-  console.log(theText[count].toString());
-  console.log(theText[count].theSelector);
+  initializeArray();
+  console.log(allMons[0].toString());
+  console.log(allMons[0].theSelector);
+  console.log(theText[0].toString());
+  console.log(theText[0].theSelector);
 
   $("button").click(function(){
     setTimeout(fadeImg, 0);
