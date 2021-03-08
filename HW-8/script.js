@@ -72,14 +72,13 @@ function initializeArray() {
   moveImg();
 }
 
-
+initializeArray();
 
 // ========================================
 // Document Ready Function and Button Click
 // ========================================
 
 $(document).ready(function(){
-  initializeArray();
   console.log(allMons[0].toString());
   console.log(allMons[0].theSelector);
   console.log(theText[0].toString());
