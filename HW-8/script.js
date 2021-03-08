@@ -77,12 +77,10 @@ function initializeArray() {
 // ========================================
 
 $(document).ready(function(){
-  console.log(allMons[count].toString());
-  console.log(allMons[count].theSelector);
-  console.log(theText[count].toString());
-  console.log(theText[count].theSelector);
-  //$(allMons[0].theSelector).src = allMons[0].theImagePath;
-  //$(allMons[count].theSelector).attr("src", allMons[count].theImagePath);
+//  console.log(allMons[count].toString());
+//  console.log(allMons[count].theSelector);
+//  console.log(theText[count].toString());
+//  console.log(theText[count].theSelector);
 
   $("button").click(function(){
     setTimeout(fadeImg, 0);
