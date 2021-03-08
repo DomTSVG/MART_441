@@ -77,10 +77,10 @@ function initializeArray() {
 // ========================================
 
 $(document).ready(function(){
-//  console.log(allMons[count].toString());
-//  console.log(allMons[count].theSelector);
-//  console.log(theText[count].toString());
-//  console.log(theText[count].theSelector);
+  console.log(allMons[count].toString());
+  console.log(allMons[count].theSelector);
+  console.log(theText[count].toString());
+  console.log(theText[count].theSelector);
 
   $("button").click(function(){
     setTimeout(fadeImg, 0);
