@@ -1,9 +1,16 @@
 body {
   font-family: 'Bitter';
   background-color: white;
-  text-align: center;
+  text-align: left;
+  font-size: 18pt;
+  background-image: url('../images/bg.jpg');
+  background-blend-mode: multiply;
 }
 
 button {
-  font-size: 12pt;
+  font-size: 16pt;
+}
+
+img {
+  width: 5%;
 }
