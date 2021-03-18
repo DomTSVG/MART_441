@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Homework 10 - HTML5</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet'>
+  </head>
+
+  <body onload="drawStuff();">
+    <h1>Journey of the Prairie King - But Worse</h1>
+    <p id="stats">Player: <img id="playerImg" src="images/player.gif"></img> Enemy: <img id="enemyImg" src="images/enemy.gif"></img> | Kills: <span id="hits">0</span></p>
+    <button id="mute" onclick="toggleMusic();">Unmute Music</button><br><br>
+    <audio id="song" src="" autoplay="autoplay" loop="loop"></audio>
+    <canvas id="myCanvas" height="" width=""></canvas>
+    <br>
+    <br>
+    <div>How to play: Use W A S D to move the hero around. Touch the enemy to get a point, or "kill". Each kill makes you smaller until a certain point. If you don't move, you won't score points.</div>
+
+    <script src="./libs/jquery-3.6.0.min.js"></script>
+    <script src="scripts/script.js"></script>
+
+  </body>
+
+</html>
