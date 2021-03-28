@@ -1,0 +1,6 @@
+{"coins":[
+  {"x":120,"y":canvas.height/2,"w":"patternWidth","h":"patternHeight","c":false,"s":"img2"},
+  {"x":192,"y":(canvas.height/2) + 24,"w":"patternWidth","h":"patternHeight","c":false,"s":"img2"},
+  {"x":240,"y":(canvas.height/2) - 24,"w":"patternWidth","h":"patternHeight","c":false,"s":"img2"}
+  ]
+}

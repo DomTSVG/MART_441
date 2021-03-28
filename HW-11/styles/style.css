@@ -1,0 +1,50 @@
+body {
+  font-family: Bitter;
+  background-image: url('../images/bigbg.png');
+  background-size: 64px;
+  text-align: center;
+}
+
+canvas {
+  background-color: white;
+  width: 40%;
+  height: 60%;
+  border-style: solid;
+  background-image: url('../images/canvasbg.png');
+  background-size: 96px;
+  background-blend-mode: multiply;
+  border-color: brown;
+  border-width: thick;
+}
+
+p {
+  background-image: url('../images/textbg.png');
+  background-size: 32px;
+  color: black;
+  font-size: 14pt;
+  font-weight: bolder;
+}
+
+img {
+  width: 30px;
+}
+
+span {
+  color: blue;
+}
+
+.hp {
+  color: green;
+}
+
+button {
+  color: red;
+  font-weight: bolder;
+  background-color: lime;
+}
+
+div {
+  color: white;
+  font-weight: bolder;
+  background-color: brown;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Homework 11 - Advanced Canvas</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet'>
+  </head>
+
+  <body onload="drawStuff();">
+    <h1>Journey of the Prairie King - But Worse and Again</h1>
+    <p id="stats">Player: <img id="playerImg" src="images/player.gif"></img> HP: <span id="hp" class="hp">5</span> | Coins: <img id="coinImg" src="images/coin.png"></img> | Coins Collected: <span id="coins">0</span> | Obstacles: <img id="obsImg" src="images/obstacle.png"></p>
+    <button id="mute" onclick="toggleMusic();">Unmute Music</button><br><br>
+    <audio id="song" src="none" autoplay="autoplay" loop="loop"></audio>
+    <canvas id="myCanvas" height="" width=""></canvas>
+    <br>
+    <br>
+    <div>How to play: Use W A S D to move the hero around. Collect all the coins to win.</div>
+
+    <script src="./libs/jquery-3.6.0.min.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/coins.js"></script>
+    <script src="./scripts/obstacles.js"></script>
+
+  </body>
+
+</html>
