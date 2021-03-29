@@ -3,8 +3,8 @@ var ctx = canvas.getContext("2d");
 var patternCtx = canvas.getContext("2d");
 var px = 0;
 var py = canvas.height/2;
-var patternWidth = 24;
-var patternHeight = 24;
+var patternWidth = 48;
+var patternHeight = 48;
 var img = document.getElementById("playerImg");
 var img2 = document.getElementById("coinImg");
 var img3 = document.getElementById("obsImg");
@@ -21,6 +21,7 @@ var coins = 0;
 var health = 5;
 var coinArray = [];
 var obsArray = [];
+var sprC = 0;
 
 // ===================
 // Key Press Functions
@@ -36,7 +37,6 @@ function getKey(event)
     /*var didCollide = hasCollided(pObj, cObj1);
     if(didCollide){
       coins++;
-      cObj1.col = true;
       document.getElementById("coins").innerHTML = coins;
       document.getElementById("myCanvas").style = "background-color: yellow;";
       setTimeout("returnColor();", 500);
@@ -66,19 +66,19 @@ function getKey(event)
 
 function moveUp()
 {
-    py-=5;
+    py-=8;
 }
 function moveDown()
 {
-    py+=5;
+    py+=8;
 }
 function moveLeft()
 {
-    px-=5;
+    px-=8;
 }
 function moveRight()
 {
-    px+=5;
+    px+=8;
 }
 
 class Player{
@@ -137,20 +137,22 @@ class Player{
 // Draw Functions
 // ==============
 
-function drawStuff() {
-  patternCtx.drawImage(img, px, py, patternWidth, patternHeight);
-
+// read in the data when the document is ready
+$(function() {
   $.getJSON("data/coinData.json",function(data) {
     for(var i = 0; i < data.coins.length; i++) {
       coinArray.push(new Coin(data.coins[i].x,data.coins[i].y,data.coins[i].w,data.coins[i].h,data.coins[i].c,data.coins[i].s))
     }
-  })
-  /*cObj1 = new Coin(c1x, c1y, patternWidth, patternHeight, false);
-  patternCtx.drawImage(img2, c1x, c1y, patternWidth, patternHeight);
-  cObj2 = new Coin(c2x, c2y, patternWidth, patternHeight, false);
-  patternCtx.drawImage(img2, c2x, c2y, patternWidth, patternHeight);
-  cObj3 = new Coin(c3x, c3y, patternWidth, patternHeight, false);
-  patternCtx.drawImage(img2, c3x, c3y, patternWidth, patternHeight);*/
+  });
+  $.getJSON("data/obsData.json",function(data) {
+    for(var i = 0; i < data.obs.length; i++) {
+      obsArray.push(new Obstacle(data.obs[i].x,data.obs[i].y,data.obs[i].w,data.obs[i].h,data.obs[i].d,data.obs[i].s))
+    }
+  });
+});
+
+function drawStuff() {
+  setTimeout("update();", 50);
 }
 
 function update()
@@ -159,55 +161,39 @@ function update()
   ctx.clearRect(0,0,1000,1000);
   drawSquare();
   drawCoins();
+  drawObs();
+  updateSprites();
 }
 
 function drawSquare() {
-  /*if (cObj1.col = true) {
 
-  }
-  else if (cObj1.col = false) {
-    patternCtx.drawImage(img2, c1x, c1y, patternWidth, patternHeight);
-  }
-  if (cObj2.col = true) {
-
-  }
-  else if (cObj2.col = false) {
-    patternCtx.drawImage(img2, c2x, c2y, patternWidth, patternHeight);
-  }
-  if (cObj3.col = true) {
-
-  }
-  else if (cObj3.col = false) {
-    patternCtx.drawImage(img2, c3x, c3y, patternWidth, patternHeight);
-  }*/
-
-  if (px >= (canvas.width - 20)) {
-    px-=5;
-    patternCtx.drawImage(img, px, py, patternWidth, patternHeight);}
+  if (px >= (canvas.width - 48)) {
+    px-=8;}
   else if (px < (canvas.width - canvas.width)) {
-    px+=5;
+    patternCtx.drawImage(img, px, py, patternWidth, patternHeight);
+    px+=8;
     patternCtx.drawImage(img, px, py, patternWidth, patternHeight);
   }
 
-  else if (py >= (canvas.height - 20)) {
-    py-=5;
+  else if (py >= (canvas.height - 48)) {
+    py-=8;
     patternCtx.drawImage(img, px, py, patternWidth, patternHeight);}
   else if (py < (canvas.height - canvas.height)) {
-    py+=5;
+    py+=8;
     patternCtx.drawImage(img, px, py, patternWidth, patternHeight);
   }
   else {
     patternCtx.drawImage(img, px, py, patternWidth, patternHeight);}
 }
 
-function hasCollided(object1, object2) {
+/*function hasCollided(object1, object2) {
     return !(
         ((object1.y + object1.height) < (object2.y)) ||
         (object1.y > (object2.y + object2.height)) ||
         ((object1.x + object1.width) < object2.x) ||
         (object1.x > (object2.x + object2.width))
     );
-}
+}*/
 
 function toggleMusic() {
   if (musOn == true) {
@@ -229,7 +215,33 @@ function returnColor(){
 function drawCoins(){
   for(var i = 0; i < coinArray.length; i++)
     {
-      patternCtx.drawImage(coinArray[i].s, coinArray[i].x, coinArray[i].y, coinArray[i].w, coinArray[i].h);
-        //ctx.fillRect(squareArray[i].x, squareArray[i].y, squareArray[i].width, squareArray[i].height);
+      patternCtx.drawImage(img2, coinArray[i].theX, coinArray[i].theY, coinArray[i].theWidth, coinArray[i].theHeight);
     }
+}
+
+function drawObs(){
+  moveObs();
+  for(var i = 0; i < obsArray.length; i++)
+    {
+      patternCtx.drawImage(img3, obsArray[i].theX, obsArray[i].theY, obsArray[i].theWidth, obsArray[i].theHeight);
+    }
+}
+
+function updateSprites(){
+  if (sprC = 0) {
+    document.getElementById("obsImg").src = "./images/obstacle2.png";
+    sprC = 1;
+  }
+  else if (sprC = 1) {
+    document.getElementById("obsImg").src = "./images/obstacle.png";
+    sprC = 0;
+  }
+}
+
+// ==============
+// Move Obstacles
+// ==============
+
+function moveObs() {
+  console.log(obsArray[1]);
 }

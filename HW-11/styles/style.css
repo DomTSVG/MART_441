@@ -7,11 +7,9 @@ body {
 
 canvas {
   background-color: white;
-  width: 40%;
-  height: 60%;
   border-style: solid;
   background-image: url('../images/canvasbg.png');
-  background-size: 96px;
+  background-size: 240;
   background-blend-mode: multiply;
   border-color: brown;
   border-width: thick;
