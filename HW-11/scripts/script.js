@@ -7,14 +7,12 @@ var patternWidth = 48;
 var patternHeight = 48;
 var img = document.getElementById("playerImg");
 var img2 = document.getElementById("coinImg");
-var img3 = document.getElementById("obsImg");
+var img3 = document.getElementById("obstacle");
 var pat = ctx.createPattern(img, "repeat");
 var pat2 = ctx.createPattern(img2, "repeat");
 var pat3 = ctx.createPattern(img3, "repeat");
 var pObj;
-var cObj1;
-var cObj2;
-var cObj3;
+var cObj;
 var oObj;
 var musOn = false;
 var coins = 0;
@@ -22,6 +20,8 @@ var health = 5;
 var coinArray = [];
 var obsArray = [];
 var sprC = 0;
+var amount = 8;
+var amount2 = 8;
 
 // ===================
 // Key Press Functions
@@ -34,13 +34,6 @@ $(document).ready(function(){
 
 function getKey(event)
 {
-    /*var didCollide = hasCollided(pObj, cObj1);
-    if(didCollide){
-      coins++;
-      document.getElementById("coins").innerHTML = coins;
-      document.getElementById("myCanvas").style = "background-color: yellow;";
-      setTimeout("returnColor();", 500);
-    }*/
     var char = event.which || event.keyCode;
     var actualLetter = String.fromCharCode(char);
 
@@ -66,19 +59,19 @@ function getKey(event)
 
 function moveUp()
 {
-    py-=8;
+    py-=16;
 }
 function moveDown()
 {
-    py+=8;
+    py+=16;
 }
 function moveLeft()
 {
-    px-=8;
+    px-=16;
 }
 function moveRight()
 {
-    px+=8;
+    px+=16;
 }
 
 class Player{
@@ -137,7 +130,6 @@ class Player{
 // Draw Functions
 // ==============
 
-// read in the data when the document is ready
 $(function() {
   $.getJSON("data/coinData.json",function(data) {
     for(var i = 0; i < data.coins.length; i++) {
@@ -152,7 +144,8 @@ $(function() {
 });
 
 function drawStuff() {
-  setTimeout("update();", 50);
+  setInterval(update,1000/30);
+  //setInterval(updateSprites,1000);
 }
 
 function update()
@@ -162,7 +155,38 @@ function update()
   drawSquare();
   drawCoins();
   drawObs();
-  updateSprites();
+
+  for(let i = 0; i < coinArray.length; i++) {
+    cObj = coinArray[i];
+    var didCollide = hasCollided(pObj,cObj);
+    if(didCollide){
+      coins++;
+      coinArray[i].setX(1000);
+      document.getElementById("coins").innerHTML = coins;
+      document.getElementById("myCanvas").style = "background-color: cyan;";
+      setTimeout("returnColor();", 500);
+    }
+    if (coins == 3) {
+      window.alert('Congratulations, you win! Click "OK" to restart.');
+      window.location = "index.html";
+    }
+  }
+  for(let i = 0; i < obsArray.length; i++) {
+    oObj = obsArray[i];
+    var didCollide = hasCollided(oObj,pObj);
+    if(didCollide){
+      health--;
+      px = 0;
+      py = canvas.height/2;
+      document.getElementById("hp").innerHTML = health;
+      document.getElementById("myCanvas").style = "background-color: red;";
+      setTimeout("returnColor();", 500);
+    }
+    if (health == 0) {
+      window.alert('You died! Click "OK" to try again.');
+      window.location = "index.html";
+    }
+  }
 }
 
 function drawSquare() {
@@ -186,14 +210,14 @@ function drawSquare() {
     patternCtx.drawImage(img, px, py, patternWidth, patternHeight);}
 }
 
-/*function hasCollided(object1, object2) {
+function hasCollided(object1, object2) {
     return !(
         ((object1.y + object1.height) < (object2.y)) ||
         (object1.y > (object2.y + object2.height)) ||
         ((object1.x + object1.width) < object2.x) ||
         (object1.x > (object2.x + object2.width))
     );
-}*/
+}
 
 function toggleMusic() {
   if (musOn == true) {
@@ -229,13 +253,18 @@ function drawObs(){
 
 function updateSprites(){
   if (sprC = 0) {
-    document.getElementById("obsImg").src = "./images/obstacle2.png";
+    document.getElementById("obstacle").src = "../images/obstacle2.png";
+    img3 = document.getElementById("obstacle");
     sprC = 1;
+    console.log(sprC);
   }
   else if (sprC = 1) {
-    document.getElementById("obsImg").src = "./images/obstacle.png";
+    document.getElementById("obstacle").src = "../images/obstacle.png";
+    img3 = document.getElementById("obstacle");
     sprC = 0;
+    console.log(sprC);
   }
+
 }
 
 // ==============
@@ -243,5 +272,44 @@ function updateSprites(){
 // ==============
 
 function moveObs() {
-  console.log(obsArray[1]);
+
+  for(let i = 0; i < obsArray.length; i++)
+  {
+    if(obsArray[i].theDir == 0)
+    {
+        // move down
+        obsArray[i].setY(obsArray[i].theY + amount);
+        if(obsArray[i].theY < 0 || obsArray[i].theY > 388)
+        {
+          amount *=1;
+        }
+    }
+    else if(obsArray[i].theDir == 1)
+    {
+        // move up
+        obsArray[i].setY(obsArray[i].theY - amount);
+        if(obsArray[i].theY < 0 || obsArray[i].theY > 388)
+        {
+          amount *=-1;
+        }
+    }
+    else if(obsArray[i].theDir == 2)
+    {
+      // move left
+      obsArray[i].setX(obsArray[i].theX - amount);
+      if(obsArray[i].theX < 0 || obsArray[i].theX > 630)
+      {
+        amount2 *=-1;
+      }
+    }
+    else if(obsArray[i].theDir == 3)
+    {
+      // move right
+      obsArray[i].setX(obsArray[i].theX + amount);
+      if(obsArray[i].theX < 0 || obsArray[i].theX > 630)
+      {
+        amount2 *=1;
+      }
+    }
+  }
 }
