@@ -10,4 +10,4 @@ Adding color to my gemstone model was a challenge, I had to google a solution an
 
 ## The Ugly
 
-I cannot and could not figure out how to animate my gemstone model. No matter what I tried I couldn't get the little bastard to move in any meaningful way, which means I may be behind on this project. If I can get it animated by the time this is being read it will be a miracle, but for now I've hit my wall for this project.
+I cannot and could not figure out how to animate my gemstone model. No matter what I tried I couldn't get the little bastard to move in any meaningful way, which means I may be behind on this project. If I can get it animated by the time this is being read it will be a miracle, but for now I've hit my wall for this project. (Spoiler alert, I did.)

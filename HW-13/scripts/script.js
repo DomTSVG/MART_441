@@ -94,10 +94,19 @@ function loadModel() {
     object.scale.z = 0.1;
     object.position.z = 0;
     object.position.y = -0.7;
+    modelObject = object;
     scene.add( object );
     document.querySelector('h1').style.display = 'none';
+    animateModel();
   } );
 }
+
+function animateModel() {
+  requestAnimationFrame(animateModel);
+  //modelObject.rotation.x += 0.05;
+  modelObject.rotation.y += 0.05;
+}
+
 /**
 * Render!
 **/
