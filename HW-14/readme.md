@@ -1,11 +1,3 @@
-# Homework 13 Readme/Report
+# Homework 14 "Paper"
 
-## The Good
-
-
-
-## The Bad
-
-
-
-## The Ugly
+Node.js, the final frontier. This was the voyage of the student Dominic, and his journey from simple code to server-based data collection, parsing, and writing. This was definitely a very rough experience, as following the example to the letter I was unable to really get across what I wanted to. But through the power of collaboration and some assistance from a fellow classmate I was able to bring myself to complete this relatively simple assignment. This doesn't change the fact that Node.js was more than complex to think about for me, and my experience working with it was troubled. Understanding each line of code here is tough, as even now I don't quite understand why particular lines in the server file (the QueryString, for example, doesn't seem to be necessary for some reason). Thinking back on how much of this class began to make sense as things developed, I am sure that someday all of the little details for node.js will click. The bigger picture, that is how it fits into the use of other things like games and websites, is not lost on me. Node.js seems to be a powerful tool for linking data between pages, submitted by users. The ability to let code rewrite files in simple (ish) strokes stretches the customizability and compatibility for pages and software through the roof. For example, we could have someone input data into this server to create a character, and then write that data to anywhere or any file that requires that character's stats (even use it to modify colors or data used in generation of drawings on a canvas). Were I confident in my ability to, I would incorporate this into my final project, which, spoilers, will include a character you can create. Even though I'm not confident in my abilities, I can see myself using this someday to launch a browser based game. Maybe in the future there will even be a newer, more flashy HTML version that will make all our wildest dreams come true. I will need to revisit node.js, or other similar options, to fully explore their uses later on. For now I'm going to take what I've learned and run with it, somewhere.

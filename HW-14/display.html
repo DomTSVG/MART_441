@@ -4,30 +4,30 @@
       <meta charset="utf-8">
       <style>
          body{
-            background-color: gray;
+            background-color: bisque;
          }
       </style>
-      <script>
-         function refreshPage()
-         {
-            const params = new URLSearchParams(window.location.search)
-            var food = params.get("foodIn");
-            var color = params.get("colorIn");
-            var refresh = params.has("norefresh");
-            if(!refresh)
-            {
-               window.location = "display.html?food=" + food + "&color=" + color + "&norefresh=1";
-            }
-         };
-      </script>
+
    </head>
 
    <body onload="refreshPage();">
      <h1>
-       Welcome!
+       Thank you, here's the survey data we got!
      </h1>
-     <span>Your favorite food is Pizza and your favorite color is Red</span>
-
+     <span>
+      <div id="info"></div>
+   </span>
+   <br>
+      <a href="index.html">Let me submit again.</a>
+     <script>
+         var infoData = document.getElementById('info')
+         new URLSearchParams(window.location.search).forEach((value, name)=>
+         {
+            infoData.append(`${name}: ${value}`)
+            infoData.append(document.createElement('br'))
+         })
+     </script>
+     </script>
 
    </body>
 </html>

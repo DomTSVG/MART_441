@@ -19,7 +19,7 @@ http.createServer(function (request, response) {
    // check to see if we are on the second page or not
    if(pathname == "/display.html")
    {
-      setTimeout(readQueryString(queryObject);, 3000);
+      readQueryString(queryObject);
    }
    // Read the requested file content from file system
    fs.readFile(pathname.substr(1), function (err, data) {
@@ -52,7 +52,7 @@ console.log("Listening on Port 8081");
 // this function grabs all the data from the queryString
 function readQueryString(queryObject) {
 
-   // access all the queryString variables
+   // Unused access to the string? Seems not to work perfectly but afraid to remove it
    if (queryObject != null) {
       let food = queryObject.food;
       let color = queryObject.color;
