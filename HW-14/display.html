@@ -1,0 +1,33 @@
+<html>
+   <head>
+      <title>Display Page</title>
+      <meta charset="utf-8">
+      <style>
+         body{
+            background-color: gray;
+         }
+      </style>
+      <script>
+         function refreshPage()
+         {
+            const params = new URLSearchParams(window.location.search)
+            var food = params.get("foodIn");
+            var color = params.get("colorIn");
+            var refresh = params.has("norefresh");
+            if(!refresh)
+            {
+               window.location = "display.html?food=" + food + "&color=" + color + "&norefresh=1";
+            }
+         };
+      </script>
+   </head>
+
+   <body onload="refreshPage();">
+     <h1>
+       Welcome!
+     </h1>
+     <span>Your favorite food is Pizza and your favorite color is Red</span>
+
+
+   </body>
+</html>
