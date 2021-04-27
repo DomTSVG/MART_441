@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Seeking Scrap City</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="./scripts/script.js"></script>
+  </head>
+
+  <body onload="onLoad();">
+    <!-- Game logo or title will go here -->
+    <h1>Seeking Scrap City</h1> A Fallout Inspired Project by <label class="bar">Dominic Rosatti</label>
+    <!-- Statblock goes here -->
+  <section>
+    <aside>
+      <div class="statblock">
+        <p class="bar">-STATS-</p>
+        <label id="playerName">No Name Yet</label><br>
+        Level: <span id="level">1</span><br>
+        Experience: <span id="experience" class="stat">0</span> | Next: <span id="expNext" class="stat">10</span> <br>
+        HP: <span id="curHP" class="stat">0</span>/<span id="hp" class="stat">5</span> [<span class="clickable" onclick="useStim();">Heal</span>]<br>
+        STR: <span id="strength" class="stat">1</span><br>
+        PER: <span id="perception" class="stat">1</span><br>
+        END: <span id="endurance" class="stat">1</span><br>
+        CHA: <span id="charisma" class="stat">1</span><br>
+        INT: <span id="intelligence" class="stat">1</span><br>
+        AGI: <span id="agility" class="stat">1</span><br>
+        LCK: <span id="luck" class="stat">1</span><br><br>
+        Weapon: <span id="weapon" class="stat">None</span><br>
+        Armor: <span id="armor" class="stat">None</span><br>
+        Caps: <span id="caps" class="stat">0</span>
+        <div id="perks">
+          <p class="bar">-Perks-</p>
+            <div class="row">
+              <div id="perkSlot1" class="column"></div>
+              <div id="perkSlot2" class="column"></div>
+            </div>
+        </div>
+        <div id="inventory">
+          <p class="bar">-INVENTORY-</p>
+            <div class="row">
+              <div id="inv1" class="column"></div>
+              <div id="inv2" class="column"></div>
+            </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Story goes here -->
+    <article id="article">
+    <div class="alertText" id="alert">
+
+    </div>
+    <div id="image"><img src="./images/vboy.png" alt=" "></div>
+    <div class="textarea" id="story">
+      <p>Hello, and thank you for choosing this Vault-Tec sanctioned simulation software! This small text-based assessment will show you how likely you are to survive in a post-apocalyptic wasteland. We have got a few things we need to get straight before we get started.</p><p id="nameInput">Potential wasteland survivor, please input your name. <input type="text" id="nameBox"></input><button id="nameSub" onclick="changeName();">Submit</button></p>
+    </div>
+    <div id="combat">
+
+    </div>
+    <div id="results">
+
+    </div>
+    <div id="choice">
+
+    </div>
+    <div id="fight">
+
+    </div>
+    </article>
+  </section>
+  </body>
+</html>

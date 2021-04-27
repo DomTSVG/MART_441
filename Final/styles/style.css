@@ -1,0 +1,105 @@
+body, html {
+  height: 100%;
+  color: lime;
+  background-color: black;
+  font-style: normal;
+  font-size: 14;
+  align-content: center;
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 10%;
+}
+
+aside {
+  float: right;
+  width: 20%;
+  padding: 5px;
+  font-size: 16px;
+}
+
+article {
+  float: left;
+  padding: 5px;
+  width: 80%;
+  visibility: visible;
+  border-style: solid;
+  border-color: lime;
+  border-width: thin;
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+button {
+  background-color: black;
+  color: lime;
+}
+
+button:hover {
+  background-color: green;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.statblock {
+  border-style: solid;
+  border-color: lime;
+  border-width: thin;
+}
+
+.alertText {
+  border-style: solid;
+  border-color: lime;
+  border-width: thin;
+}
+
+.playerimg {
+  width: 30%;
+}
+
+.stat {
+  color: yellow;
+  font-weight: bold;
+}
+
+.clickable {
+  color: green;
+}
+
+.clickable:hover {
+  color: blue;
+}
+
+.bar {
+  color: black;
+  background-color: lime;
+}
+
+.itemImg {
+  width: 4%;
+}
+
+.damage {
+  color: red;
+}
